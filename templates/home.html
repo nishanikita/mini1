@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        table {
+     margin-top: 20px;
+     border-collapse: collapse;
+     width: 100%;
+     border: 1px solid black;
+     direction: ltr;
+     }
+ 
+     th, td {
+     text-align:center;
+     padding: 8px;
+     border: 1px solid black;
+     }
+ 
+     tr:nth-child(even) {
+     background-color: #D6EEEE;
+     }
+     tr:nth-child(odd) {
+     background-color: #D6EEEE;
+     }
+     a{
+       text-decoration: none;
+     }
+     </style>
+</head>
+<body>
+    {% extends "index.html" %}
+    {% block content %}
+    <div style="text-align: center;margin-top: 40px;">
+        <h1 style="background-color:rgb(18, 16, 16);color: white;display: inline-block;padding: 10px 15px;font-weight: 800;box-shadow: 0px 0px 10px black;">Student Detail Table</h1></div>
+    <table>
+        <tr>
+            <td colspan="4" style="font-size: 20px;font-weight: 800;">Student-Details</td>
+            <td colspan="5" style="font-size: 20px;font-weight: 800;">Marks</td>
+            <td colspan="2" style="font-size: 20px;font-weight: 800;">Action</td>
+        </tr>
+        <tr>
+            <td>SL.NO</td>
+            <td>NAME</td>
+            <td>AGE</td>
+            <td>ROLLNO</td>
+            <td>TAMIL</td>
+            <td>ENGLISH</td>
+            <td>MATHS</td>
+            <td>SCIENCE</td>
+            <td>SOCIALSCIENCE</td>
+            <td>EDIT</td>
+            <td>DELETE</td>
+        </tr>
+        {% for i in data%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{i.Name}}</td>
+            <td>{{i.Age}}</td>
+            <td>{{i.RollNO}}</td>
+            {% for j in i.Marks %}
+            <td>{{j}}</td>
+            {% endfor%}
+            <td><a href="{{url_for('edit',index=loop.index)}}" style="background-color: rgb(11, 227, 65);color: white;padding:3px 5px;">Edit</a></td>
+            <td><a href="{{url_for('delete',index=loop.index)}}" style="background-color: red;color: white;padding:3px 5px;">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock %}
+</body>
+</html>

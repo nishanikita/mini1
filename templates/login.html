@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-page</title>
+    <style>
+      body{
+        direction: ltr;
+      }
+        ::placeholder {
+          color: white;
+          opacity: 1;
+          font-size:15px;
+          font-weight: 800;
+              }
+              input{
+                border:1px solid rgb(3, 64, 32);
+              }
+        input:focus{
+        outline: none;
+        font-size: 15px;
+        color: white;
+        font-weight: 800;
+              }
+        </style>
+</head>
+<body>
+    {% extends "index.html" %}
+    {% block content %}
+    <div style="text-align: center;">
+        <h1 style="color: rgb(16, 14, 14);font-weight: 800;display: inline-block;font-family:monospace;box-shadow: 0px 0px 10px rgb(228, 12, 120);" class="mt-5 px-3 py-2 bg-primary">Login Page</h1>
+    </div>
+    <form action="" method="post">
+        <div class="d-flex mt-5" style="align-items: center;justify-content: center;">
+        <div class="col-5 p-5" style="box-shadow: 0px 0px 10px #f975c7;">
+        <div class="mb-3"  style="text-align:left;">
+          <label  class="form-label" style="font-weight: 800;">Name :</label><br>
+          <input type="text" class=" bg-primary  py-3 px-2"  aria-describedby="emailHelp" placeholder="Enter The Name" style="width: 100%;border-radius: 10px;" name="name"> 
+        </div>
+        <div class="mb-3" style="text-align:left;">
+          <label for="exampleInputPassword1" class="form-label" style="font-weight: 800;">Password :</label><br>
+          <input  placeholder="Enter The Password" type="password" class=" bg-primary py-3 px-2"  id="exampleInputPassword1" style="width: 100%;border-radius: 10px;" name="password">
+        </div>
+        <div style="text-align:center;">
+            <button type="submit" class="btn btn-primary" style="font-weight: 800;">Submit</button>
+        </div>
+        </div>
+    </div>
+      </form>
+    {% endblock %}
+</body>
+</html>
